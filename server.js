@@ -2,9 +2,11 @@ const mongoose = require("mongoose");
 const express = require("express");
 const path = require("path");
 const app = express();
+var cors = require("cors");
 require("dotenv").config();
 let port = process.env.PORT || 5544;
 let DBURI = process.env.DBURI;
+app.use(cors());
 app.use(express.json());
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 mongoose
