@@ -43,10 +43,10 @@ route.put("/add-photo/:id", upload.single("photo"), async (req, res) => {
     res.status(400).json({ status: false, error });
   }
 });
-route.post("/add-audio/:id", audioMidd.single("file"), async (req, res) => {
+route.put("/add-audio/:id", audioMidd.single("file"), async (req, res) => {
   try {
     let { id } = req.params;
-    let audio = `${req.protocol}://${req.get("host")}/sounds/${
+    let audio = `${req.protocol}s://${req.get("host")}/sounds/${
       req.file.filename
     }`;
     let newUser = await User.findByIdAndUpdate(

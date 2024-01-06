@@ -9,7 +9,10 @@ const userSchema = new Schema({
     type: String,
     default: "https://cdn-icons-png.flaticon.com/512/9131/9131529.png",
   },
-  audio: String,
+  audio: {
+    type: String,
+    default: "",
+  },
 });
 
 module.exports = User = mongoose.model("users", userSchema);
