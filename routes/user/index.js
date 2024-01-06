@@ -23,8 +23,9 @@ route.post("/register", async (req, res) => {
 
 route.put("/add-photo/:id", upload.single("photo"), async (req, res) => {
   try {
+    console.log("req.protocol: ", req.protocol);
     let { id } = req.params;
-    let userImg = `${req.protocol}://${req.get("host")}/uploads/${
+    let userImg = `${req.protocol}s://${req.get("host")}/uploads/${
       req.file.filename
     }`;
     let newUser = await User.findByIdAndUpdate(
