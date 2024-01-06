@@ -9,6 +9,7 @@ let DBURI = process.env.DBURI;
 app.use(cors());
 app.use(express.json());
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+app.use("/sounds", express.static(path.join(__dirname, "sounds")));
 mongoose
   .connect(`${DBURI}`)
   .then(() => {
